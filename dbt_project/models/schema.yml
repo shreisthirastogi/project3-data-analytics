@@ -1,0 +1,50 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: public
+    tables:
+      - name: raw_trips
+        description: "Raw ingested trip records from incremental API loads."
+        columns:
+          - name: trip_id
+            tests:
+              - not_null
+              - unique
+          - name: fare
+            tests:
+              - not_null
+          - name: driver_id
+            tests:
+              - not_null
+          - name: date
+            tests:
+              - not_null
+          - name: city
+            tests:
+              - not_null
+
+models:
+  - name: stg_trips
+    description: "Cleaned, typed staging layer for raw trip records."
+    columns:
+      - name: trip_id
+        tests:
+          - not_null
+          - unique
+      - name: fare_usd
+        tests:
+          - not_null
+      - name: trip_date
+        tests:
+          - not_null
+
+  - name: mart_daily_trips
+    description: "Daily aggregated trip metrics — connected to Metabase dashboards."
+    columns:
+      - name: trip_date
+        tests:
+          - not_null
+      - name: total_trips
+        tests:
+          - not_null

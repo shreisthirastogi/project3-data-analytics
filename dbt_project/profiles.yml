@@ -1,0 +1,12 @@
+analytics_pipeline:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('POSTGRES_HOST', 'localhost') }}"
+      port: 5432
+      user: "{{ env_var('POSTGRES_USER', 'airflow') }}"
+      pass: "{{ env_var('POSTGRES_PASSWORD', 'airflow') }}"
+      dbname: "{{ env_var('POSTGRES_DB', 'airflow') }}"
+      schema: public
+      threads: 4

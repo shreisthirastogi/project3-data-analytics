@@ -1,0 +1,79 @@
+services:
+  # Airflow Webserver
+  - type: web
+    name: dataanalytics-airflow
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    startCommand: >
+      bash -c "airflow db init &&
+               airflow users create --username admin --firstname Admin --lastname User
+                 --role Admin --email admin@example.com --password admin &&
+               airflow webserver"
+    envVars:
+      - key: AIRFLOW__CORE__EXECUTOR
+        value: LocalExecutor
+      - key: AIRFLOW__CORE__SQL_ALCHEMY_CONN
+        fromDatabase:
+          databaseName: airflow-db
+          property: connectionString
+      - key: AIRFLOW__CORE__FERNET_KEY
+        generateValue: true
+      - key: AIRFLOW__CORE__LOAD_EXAMPLES
+        value: "false"
+      - key: POSTGRES_HOST
+        fromDatabase:
+          databaseName: airflow-db
+          property: host
+      - key: POSTGRES_DB
+        fromDatabase:
+          databaseName: airflow-db
+          property: database
+      - key: POSTGRES_USER
+        fromDatabase:
+          databaseName: airflow-db
+          property: user
+      - key: POSTGRES_PASSWORD
+        fromDatabase:
+          databaseName: airflow-db
+          property: password
+
+  # Airflow Scheduler (background worker)
+  - type: worker
+    name: dataanalytics-scheduler
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    startCommand: airflow scheduler
+    envVars:
+      - key: AIRFLOW__CORE__EXECUTOR
+        value: LocalExecutor
+      - key: AIRFLOW__CORE__SQL_ALCHEMY_CONN
+        fromDatabase:
+          databaseName: airflow-db
+          property: connectionString
+      - key: AIRFLOW__CORE__FERNET_KEY
+        sync: false
+      - key: AIRFLOW__CORE__LOAD_EXAMPLES
+        value: "false"
+      - key: POSTGRES_HOST
+        fromDatabase:
+          databaseName: airflow-db
+          property: host
+      - key: POSTGRES_DB
+        fromDatabase:
+          databaseName: airflow-db
+          property: database
+      - key: POSTGRES_USER
+        fromDatabase:
+          databaseName: airflow-db
+          property: user
+      - key: POSTGRES_PASSWORD
+        fromDatabase:
+          databaseName: airflow-db
+          property: password
+
+databases:
+  - name: airflow-db
+    plan: free
