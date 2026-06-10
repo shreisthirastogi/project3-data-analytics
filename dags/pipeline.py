@@ -288,3 +288,5 @@ with DAG(
 
     # DAG dependency chain
     ingest_task >> ge_data_quality_test >> dbt_run >> dbt_model_test >> forecast_task
+
+# ingestion task
