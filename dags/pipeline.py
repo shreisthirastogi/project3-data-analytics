@@ -292,3 +292,5 @@ with DAG(
 # ingestion task
 
 # bad batch injection
+
+# postgres write
