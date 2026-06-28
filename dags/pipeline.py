@@ -294,3 +294,5 @@ with DAG(
 # bad batch injection
 
 # postgres write
+
+# dbt run
