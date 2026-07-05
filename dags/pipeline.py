@@ -296,3 +296,5 @@ with DAG(
 # postgres write
 
 # dbt run
+
+# dbt tests
