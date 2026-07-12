@@ -298,3 +298,5 @@ with DAG(
 # dbt run
 
 # dbt tests
+
+# ARIMA forecast
