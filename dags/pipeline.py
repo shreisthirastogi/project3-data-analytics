@@ -300,3 +300,5 @@ with DAG(
 # dbt tests
 
 # ARIMA forecast
+
+# MAPE eval
