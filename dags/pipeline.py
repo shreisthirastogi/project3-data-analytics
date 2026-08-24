@@ -312,3 +312,5 @@ with DAG(
 # import cleanup
 
 # GE quality check
+
+# GE null check
