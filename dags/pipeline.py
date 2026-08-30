@@ -314,3 +314,5 @@ with DAG(
 # GE quality check
 
 # GE null check
+
+# GE failure test
