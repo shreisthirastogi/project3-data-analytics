@@ -24,3 +24,5 @@ An end-to-end Airflow and dbt data pipeline that doesn't just build dashboards, 
 - Pipeline Uptime: 99.9%
 - Forecast MAPE: 12.4% (City X test set)
 - Business Action: *Increase weekend incentives by 15% (Demand 1.20x, Supply Gap 25.0%)*
+
+# deploy ready
