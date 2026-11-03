@@ -1,0 +1,19 @@
+tier,specialization,metric,train_years,test_years,mae,mape_pct
+Tier 1,AI/DS,median_salary,2016-2022,2023-2024,0.17,0.58
+Tier 1,AI/DS,placed_percentage,2016-2022,2023-2024,0.93,0.95
+Tier 1,CSE,median_salary,2016-2022,2023-2024,0.26,0.95
+Tier 1,CSE,placed_percentage,2016-2022,2023-2024,2.56,2.6
+Tier 1,ECE,median_salary,2016-2022,2023-2024,0.4,1.83
+Tier 1,ECE,placed_percentage,2016-2022,2023-2024,3.54,3.75
+Tier 2,AI/DS,median_salary,2016-2022,2023-2024,0.17,1.15
+Tier 2,AI/DS,placed_percentage,2016-2022,2023-2024,1.13,1.29
+Tier 2,CSE,median_salary,2016-2022,2023-2024,0.4,2.73
+Tier 2,CSE,placed_percentage,2016-2022,2023-2024,1.7,1.94
+Tier 2,ECE,median_salary,2016-2022,2023-2024,0.27,2.34
+Tier 2,ECE,placed_percentage,2016-2022,2023-2024,0.91,1.07
+Tier 3,AI/DS,median_salary,2016-2022,2023-2024,0.3,3.79
+Tier 3,AI/DS,placed_percentage,2016-2022,2023-2024,0.09,0.12
+Tier 3,CSE,median_salary,2016-2022,2023-2024,0.31,4.04
+Tier 3,CSE,placed_percentage,2016-2022,2023-2024,2.74,3.76
+Tier 3,ECE,median_salary,2016-2022,2023-2024,0.27,4.4
+Tier 3,ECE,placed_percentage,2016-2022,2023-2024,2.47,3.67
